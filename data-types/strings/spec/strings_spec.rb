@@ -102,7 +102,7 @@ RSpec.describe 'Strings' do
   it 'test 12' do
     rhyme = "eeny, meeny, miny, moe"
     # In place of the line below, call a method to achieve the expected output.
-    actual = rhyme.delete('e', 'o')
+    actual = rhyme.delete('eio')
     expected = "ny, mny, mny, m"
 
     expect(actual).to eq(expected)
@@ -147,7 +147,7 @@ RSpec.describe 'Strings' do
   it 'test 17' do
     greeting = "Hello World!"
     # In place of the line below, call a method to get the number of vowels in the string
-    actual = greeting.count('a','e','i','o','u')
+    actual = greeting.count('aeiou')
     expected = 3
 
     expect(actual).to eq(expected)
