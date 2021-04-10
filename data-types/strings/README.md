@@ -23,7 +23,8 @@ There are additional methods that you will need to complete the exercises; each 
 ```
 ```
 
-### RSpec Config:
+### RSpec Config Notes:
 1. `/Users/taylorvaroglu/Desktop/DesktopFiles/mod0/ruby-exercises/data-types/strings main $ bundle install --path .bundle`
-2. To run a file (within 'spec' dir):  
+    - __OPTIONAL:__  creates a `.bundle/` root-level directory, but Rspec can still be executed without (assuming `gem install bundler` and `bundle install` commands have already been run)
+2. To run a file (i.e. within 'spec' dir):  
     `$ bundle exec rspec strings_spec.rb`
