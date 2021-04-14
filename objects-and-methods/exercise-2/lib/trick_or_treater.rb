@@ -2,7 +2,7 @@ require_relative 'costume'
 require_relative 'bag'
 
 class TrickOrTreater
-  attr_accessor :costume, :dressed_up_as, :bag, :candies
+  attr_accessor :costume, :dressed_up_as, :bag, :candies, :sugar_level
 
   def initialize(costume='none')
     if costume == 'none'
@@ -14,6 +14,7 @@ class TrickOrTreater
     end
     @bag = Bag.new
     @candies = bag.candies
+    @sugar_level = 0
   end
 
   def has_candy?()
@@ -29,7 +30,8 @@ class TrickOrTreater
   end
 
   def eat()
-    self.candies = candies.drop(1)
+    candy_eaten = self.candies.shift
+    self.sugar_level += candy_eaten.sugar
   end
 
 end
@@ -56,3 +58,32 @@ end
 # p custom_trick_or_treater.bag.empty?
 # p custom_trick_or_treater.has_candy?
 # p custom_trick_or_treater.candies
+# puts '-' * 10
+#
+# custom_trick_or_treater.bag.candies << Candy.new('Gummy worms', 88)
+# custom_trick_or_treater.bag.candies << Candy.new('Liquorice', 83)
+# custom_trick_or_treater.bag.candies << Candy.new('Salty Serpents', 71)
+# p custom_trick_or_treater.bag.empty?
+# p custom_trick_or_treater.has_candy?
+# p custom_trick_or_treater.candies
+# puts '-' * 10
+#
+# custom_trick_or_treater.eat
+# p custom_trick_or_treater.candies
+# p custom_trick_or_treater.sugar_level
+# p custom_trick_or_treater.bag.empty?
+# p custom_trick_or_treater.has_candy?
+# puts '-' * 10
+#
+# custom_trick_or_treater.eat
+# p custom_trick_or_treater.candies
+# p custom_trick_or_treater.sugar_level
+# p custom_trick_or_treater.bag.empty?
+# p custom_trick_or_treater.has_candy?
+# puts '-' * 10
+#
+# custom_trick_or_treater.eat
+# p custom_trick_or_treater.candies
+# p custom_trick_or_treater.sugar_level
+# p custom_trick_or_treater.bag.empty?
+# p custom_trick_or_treater.has_candy?

@@ -6,15 +6,15 @@ If you'd like to be walked through the exercise, check out the [Objects and Meth
 
 Make the tests pass in the following sequence:
 
-* `test/candy_test.rb`
-* `test/bag_test.rb`
-* `test/costume_test.rb`
-* `test/trick_or_treater_test.rb`
+* `spec/candy_spec.rb`
+* `spec/bag_spec.rb`
+* `spec/costume_spec.rb`
+* `spec/trick_or_treater_spec.rb`
 
-Run a test file by calling it with `ruby`:
+Run a `spec` file by calling it with `bundle exec rspec <file>`:
 
 ```bash
-$ ruby test/bag_test.rb
+$ bundle exec rspec spec/bag_spec.rb
 ```
 
 ## Exercise 2
@@ -23,8 +23,7 @@ Each object has become a little bit more complex.
 
 Make the tests pass in the following sequence:
 
-* `test/candy_test.rb`
-* `test/bag_test.rb`
-* `test/costume_test.rb`
-* `test/trick_or_treater_test.rb`
-
+* `spec/candy_spec.rb`
+* `spec/bag_spec.rb`
+* `spec/costume_spec.rb`
+* `spec/trick_or_treater_spec.rb`
