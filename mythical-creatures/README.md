@@ -29,7 +29,7 @@ Continue to follow the errors that your test provides until the test passes. The
 * [x] `unicorn_spec.rb` [video walk-through](https://youtu.be/mocwGsu41yw) (watch this first)
 * [x] `vampire_spec.rb`
 * [x] `dragon_spec.rb` [video walk-through](https://youtu.be/NIPerY-xuCk)
-* [ ] `hobbit_spec.rb` [video walk-through](https://youtu.be/uYGS-DCNR-0)
+* [x] `hobbit_spec.rb` [video walk-through](https://youtu.be/uYGS-DCNR-0)
 * [ ] `pirate_spec.rb`
 * [ ] `wizard_spec.rb`
 * [ ] `medusa_spec.rb`

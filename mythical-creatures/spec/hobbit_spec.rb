@@ -1,5 +1,5 @@
-require './spec/spec_helper'
-require './lib/hobbit'
+require 'rspec'
+require_relative '../lib/hobbit'
 
 RSpec.describe Hobbit do
   it 'has a name' do
@@ -58,21 +58,59 @@ RSpec.describe Hobbit do
     expect(hobbit.adult?).to be true
   end
 
-  xit 'is old at the age of 101' do
-    # create a hobbit
-    # have hobbit age 101 years
-    # check that hobbit.old? returns true
+  it 'is old at the age of 101' do
+    hobbit = Hobbit.new('Otho')
+
+    101.times do
+      hobbit.celebrate_birthday
+    end
+
+    expect(hobbit.adult?).to be true
+    expect(hobbit.old?).to be true
+
+    # still old one year later
+    hobbit.celebrate_birthday
+
+    expect(hobbit.old?).to be true
   end
 
-  xit 'it has the ring if its name is Frodo' do
-    # create a hobbit named Frodo
-    # create a second hobbit named Sam
-    # check that .has_ring? for Frodo returns true
-    # check that .has_ring? for Sam returns false
+  it 'it has the ring if its name is Frodo' do
+    hobbit_1 = Hobbit.new('Frodo')
+    hobbit_2 = Hobbit.new('Sam')
+
+    expect(hobbit_1.has_ring?).to be true
+    expect(hobbit_2.has_ring?).to be false
   end
 
-  xit 'they are short' do
-    # create a hobbit
-    # check that is_short? returns true
+  it 'they are short' do
+    hobbit = Hobbit.new
+    expect(hobbit.is_short?).to be true
+  end
+
+  it 'can grow (by taking a magic potion)' do
+    hobbit = Hobbit.new
+    expect(hobbit.name).to eq('Bilbo Baggins')
+    expect(hobbit.is_short?).to be true
+
+    hobbit.grow
+    expect(hobbit.is_short?).to be false
+  end
+
+  it 'has a weapon' do
+    hobbit = Hobbit.new
+    expect(hobbit.weapon).to eq('dagger')
+  end
+
+  it 'can have a different weapon' do
+    hobbit = Hobbit.new('Frodo', 'adventurous', 'sword')
+    expect(hobbit.weapon).to eq('sword')
+  end
+
+  it 'can change weapons' do
+    hobbit = Hobbit.new
+    expect(hobbit.weapon).to eq('dagger')
+
+    hobbit.change_weapon('mace')
+    expect(hobbit.weapon).to eq('mace')
   end
 end
