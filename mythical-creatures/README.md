@@ -6,7 +6,7 @@ Here's a guide that might be helpful in understanding the principles covered in 
 
 ## How to Run
 
-In order to complete these exercises create a class for each of the mythical creatures in the `spec` directory.
+In order to complete these exercises create a class for each of the mythical creatures in the `lib` directory.
 
 Navigate to the `mythical-creatures` directory in your terminal, and then run your first test:
 
@@ -20,7 +20,7 @@ If you get an error regarding a certain gem not being installed, you may need to
 $ bundle install
 ```
 
-There's a video walk-through of the setup and the whole `unicorn_spec.rb` file here: [https://youtu.be/mocwGsu41yw](https://youtu.be/mocwGsu41yw).
+Here's a [video walk-through](https://youtu.be/mocwGsu41yw) of the setup and the whole `unicorn_spec.rb` file.
 
 Continue to follow the errors that your test provides until the test passes. Then, unskip the next test by changing the line that says `xit` to `it`. Continue until all tests pass for all creatures.
 
