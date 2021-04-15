@@ -30,7 +30,7 @@ Continue to follow the errors that your test provides until the test passes. The
 * [x] `vampire_spec.rb`
 * [x] `dragon_spec.rb` [video walk-through](https://youtu.be/NIPerY-xuCk)
 * [x] `hobbit_spec.rb` [video walk-through](https://youtu.be/uYGS-DCNR-0)
-* [ ] `pirate_spec.rb`
+* [x] `pirate_spec.rb`
 * [ ] `wizard_spec.rb`
 * [ ] `medusa_spec.rb`
 * [ ] `werewolf_spec.rb`

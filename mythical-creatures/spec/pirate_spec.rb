@@ -1,5 +1,5 @@
 require 'rspec'
-require './lib/pirate'
+require_relative '../lib/pirate'
 
 RSpec.describe Pirate do
   it 'has a name' do
@@ -38,14 +38,57 @@ RSpec.describe Pirate do
   end
 
   it 'has a booty' do
-    # create a pirate
-    # check that the pirate starts with 0 booty
+    pirate = Pirate.new
+    expect(pirate.name).to eq('John Smith')
+
+    expect(pirate.booty).to eq(0)
   end
 
   it 'gets 100 booty for robbing a ship' do
-    # create a pirate
-    # rob some ships
-    # check that the pirate got 100 booty for each ship it robbed
+    pirate = Pirate.new
+
+    pirate.rob_ship
+    expect(pirate.booty).to eq(100)
+
+    pirate.rob_ship
+    expect(pirate.booty).to eq(200)
+
+    pirate.rob_ship
+    expect(pirate.booty).to eq(300)
   end
 
+  it 'can dump the booty in the ocean' do
+    pirate = Pirate.new
+
+    5.times do
+      pirate.rob_ship
+    end
+    expect(pirate.booty).to eq(500)
+
+    pirate.dump_booty
+    expect(pirate.booty).to eq(0)
+  end
+
+  it 'can track the number of ships robbed' do
+    pirate = Pirate.new
+
+    10.times do
+      pirate.rob_ship
+    end
+    expect(pirate.ships_robbed).to eq(10)
+  end
+
+  it 'can change identities to conceal the number of ships robbed' do
+    pirate = Pirate.new('Jack Sparrow')
+
+    3.times do
+      pirate.rob_ship
+    end
+    expect(pirate.name).to eq('Jack Sparrow')
+    expect(pirate.ships_robbed).to eq(3)
+
+    pirate.change_identity
+    expect(pirate.name).to eq('John Smith')
+    expect(pirate.ships_robbed).to eq(0)
+  end
 end
