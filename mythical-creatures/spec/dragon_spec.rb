@@ -1,5 +1,5 @@
 require 'rspec'
-require './lib/dragon'
+require_relative '../lib/dragon'
 
 RSpec.describe Dragon do
   it 'has a name' do
@@ -46,5 +46,70 @@ RSpec.describe Dragon do
     expect(dragon.hungry?).to be true
     dragon.eat
     expect(dragon.hungry?).to be false
+  end
+
+  it 'can digest after eating a lot' do
+    dragon = Dragon.new
+    expect(dragon.name).to eq('Smaug')
+    expect(dragon.color).to eq(:gold)
+    expect(dragon.rider).to eq('none')
+
+    expect(dragon.hungry?).to be true
+    dragon.eat
+    expect(dragon.hungry?).to be true
+    dragon.eat
+    expect(dragon.hungry?).to be true
+    dragon.eat
+    expect(dragon.hungry?).to be false
+    dragon.digest
+    expect(dragon.hungry?).to be true
+  end
+
+  it 'can collect treasures' do
+    dragon = Dragon.new
+    expect(dragon.treasures).to eq([])
+    expect(dragon.treasures.length). to eq(0)
+
+    treasures = [
+      'gold', 'jewels', 'coins'
+    ]
+    treasures.each do |treasure|
+      dragon.treasures << treasure
+    end
+
+    expect(dragon.treasures).to eq(treasures)
+    expect(dragon.treasures.length).to eq(3)
+  end
+
+  it 'can display treasures' do
+    dragon = Dragon.new
+    expect(dragon.display_treasures).to eq([])
+
+    treasures = [
+      'gold', 'jewels', 'coins'
+    ]
+    treasures.each do |treasure|
+      dragon.treasures << treasure
+    end
+
+    expect(dragon.display_treasures).to eq(treasures)
+  end
+
+  it 'can get rid of all treasures' do
+    dragon = Dragon.new
+    expect(dragon.display_treasures).to eq([])
+
+    treasures = [
+      'gold', 'jewels', 'coins'
+    ]
+    treasures.each do |treasure|
+      dragon.treasures << treasure
+    end
+
+    expect(dragon.display_treasures).to eq(treasures)
+
+    dragon.devour_treasures
+
+    expect(dragon.display_treasures).to eq([])
   end
 end
