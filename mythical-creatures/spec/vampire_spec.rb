@@ -53,20 +53,21 @@ RSpec.describe Vampire do
     expect(vampire.pets.length).to eq(1)
 
     vampire.add_pet('fox')
-    expect(vampire.pets).to eq(['bat', 'fox'])
-    expect(vampire.pets.length).to eq(2)
+    vampire.add_pet('wolf')
+    expect(vampire.pets).to eq(['bat', 'fox', 'wolf'])
+    expect(vampire.pets.length).to eq(3)
 
     vampire.release_pet('bat')
-    expect(vampire.pets).to eq(['fox'])
+    expect(vampire.pets).to eq(['fox', 'wolf'])
     expect(vampire.pet).to eq('fox')
-    expect(vampire.pets.length).to eq(1)
+    expect(vampire.pets.length).to eq(2)
   end
 
   it 'can be exposed to sunlight' do
     vampire = Vampire.new('Marlow')
 
     expect(vampire.expose_to_sunlight(0)).to eq("That won't kill him, try again!")
-    expect(vampire.expose_to_sunlight(9)).to eq("That hurt... but it's not enough sunlight to kill Marlow!")
+    expect(vampire.expose_to_sunlight(1)).to eq("That hurt... but it's not enough sunlight to kill Marlow!")
     expect(vampire.expose_to_sunlight(11)).to eq("You have vanquished Marlow, good job!")
   end
 

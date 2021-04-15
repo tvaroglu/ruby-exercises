@@ -20,7 +20,7 @@ class Vampire
   def release_pet(pet)
     if self.pets.include? pet
       self.pets.delete(pet)
-      if self.pets.length == 1
+      if self.pets.length == 1 || self.pets.include?(self.pet) == false
         self.pet = self.pets[0]
       end
     end
