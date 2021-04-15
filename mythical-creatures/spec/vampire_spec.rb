@@ -1,5 +1,5 @@
 require 'rspec'
-require './lib/vampire'
+require_relative '../lib/vampire'
 
 RSpec.describe Vampire do
   it 'has a name' do
@@ -33,5 +33,48 @@ RSpec.describe Vampire do
 
     vampire.drink
     expect(vampire.thirsty).to be false
+  end
+
+  it 'can have multiple pets' do
+    vampire = Vampire.new('Marlow')
+    expect(vampire.pet).to eq('bat')
+    expect(vampire.pets).to eq(['bat'])
+    expect(vampire.pets.length).to eq(1)
+
+    vampire.add_pet('fox')
+    expect(vampire.pets).to eq(['bat', 'fox'])
+    expect(vampire.pets.length).to eq(2)
+  end
+
+  it 'can release a pet' do
+    vampire = Vampire.new('Marlow')
+    expect(vampire.pet).to eq('bat')
+    expect(vampire.pets).to eq(['bat'])
+    expect(vampire.pets.length).to eq(1)
+
+    vampire.add_pet('fox')
+    expect(vampire.pets).to eq(['bat', 'fox'])
+    expect(vampire.pets.length).to eq(2)
+
+    vampire.release_pet('bat')
+    expect(vampire.pets).to eq(['fox'])
+    expect(vampire.pet).to eq('fox')
+    expect(vampire.pets.length).to eq(1)
+  end
+
+  it 'can be exposed to sunlight' do
+    vampire = Vampire.new('Marlow')
+
+    expect(vampire.expose_to_sunlight(0)).to eq("That won't kill him, try again!")
+    expect(vampire.expose_to_sunlight(9)).to eq("That hurt... but it's not enough sunlight to kill Marlow!")
+    expect(vampire.expose_to_sunlight(11)).to eq("You have vanquished Marlow, good job!")
+  end
+
+  it 'can be vanquished if exposed to more than 10 minutes of sunlight' do
+    vampire = Vampire.new('Marlow')
+    expect(vampire.vanquished).to be false
+
+    expect(vampire.expose_to_sunlight(11)).to eq("You have vanquished Marlow, good job!")
+    expect(vampire.vanquished).to be true
   end
 end
