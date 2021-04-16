@@ -15,12 +15,10 @@ class Pirate
   end
 
   def cursed?()
-    if self.heinous_acts == 3
+    if self.heinous_acts >= 3
       self.cursed = true
-      return true
-    else
-      return false
     end
+    return self.cursed
   end
 
   def rob_ship()
