@@ -1,4 +1,4 @@
-require_relative 'medusa'
+# require_relative 'medusa'
 
 class Person
   attr_accessor :name, :stoned
