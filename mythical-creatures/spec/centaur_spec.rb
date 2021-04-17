@@ -1,5 +1,5 @@
-require './spec/spec-helper'
-require './lib/centaur'
+require 'rspec'
+require_relative '../lib/centaur'
 
 RSpec.describe Centaur do
   it 'has a name' do
@@ -105,6 +105,7 @@ RSpec.describe Centaur do
     centaur.sleep
 
     expect(centaur.cranky?).to be false
+    expect(centaur.energy_level).to eq(3)
 
     centaur.stand_up
 
@@ -113,14 +114,66 @@ RSpec.describe Centaur do
   end
 
   it 'becomes rested after drinking a potion' do
-    # your code here
+    centaur = Centaur.new
+    expect(centaur.energy_level).to eq(3)
+    expect(centaur.cranky?).to be false
+
+    3.times { centaur.run }
+
+    expect(centaur.energy_level).to eq(0)
+    expect(centaur.cranky?).to be true
+
+    centaur.drink_potion
+
+    expect(centaur.energy_level).to eq(3)
+    expect(centaur.cranky?).to be false
   end
 
   it 'can only drink a potion whilst standing' do
-    # your code here
+    centaur = Centaur.new
+    expect(centaur.energy_level).to eq(3)
+    expect(centaur.cranky?).to be false
+
+    3.times { centaur.shoot }
+
+    expect(centaur.energy_level).to eq(0)
+    expect(centaur.cranky?).to be true
+
+    centaur.lay_down
+
+    expect(centaur.drink_potion).to eq('NO!')
+    expect(centaur.energy_level).to eq(0)
+    expect(centaur.cranky?).to be true
   end
 
-  it 'gets stick if a potion is drunk while rested' do
-    # your code here
+  it 'gets sick if a potion is drunk while rested' do
+    centaur = Centaur.new
+    expect(centaur.energy_level).to eq(3)
+    expect(centaur.cranky?).to be false
+
+    expect(centaur.drink_potion).to eq('YUCK!')
+  end
+
+  it 'will not run when cranky' do
+    centaur = Centaur.new
+    expect(centaur.name).to eq('Chiron')
+    expect(centaur.breed).to eq('Thoroughbred')
+    expect(centaur.cranky?).to be false
+
+    3.times { centaur.run }
+
+    expect(centaur.run).to eq('NO!')
+    expect(centaur.energy_level).to eq(0)
+  end
+
+  it 'can change colors' do
+    centaur = Centaur.new
+    expect(centaur.color).to eq('white')
+
+    centaur.change_colors('grey')
+    expect(centaur.color).to eq('grey')
+
+    centaur.change_colors(123)
+    expect(centaur.color).to eq('grey')
   end
 end

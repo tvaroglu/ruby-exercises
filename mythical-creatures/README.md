@@ -34,7 +34,7 @@ Continue to follow the errors that your test provides until the test passes. The
 * [x] `wizard_spec.rb`
 * [x] `medusa_spec.rb`
 * [x] `werewolf_spec.rb`
-* [ ] `centaur_spec.rb`
+* [x] `centaur_spec.rb`
 * [ ] `ogre_spec.rb`
 * [ ] `direwolf_spec.rb`
 * [ ] `the_journey_spec.rb` (see below)
