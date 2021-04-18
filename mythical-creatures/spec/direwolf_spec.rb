@@ -1,5 +1,6 @@
-require './spec/spec-helper'
-require './lib/direwolf'
+require 'rspec'
+require_relative '../lib/direwolf/direwolf'
+require_relative '../lib/direwolf/stark'
 
 RSpec.describe Direwolf do
   it 'has a name' do
@@ -79,7 +80,7 @@ RSpec.describe Direwolf do
     lady_wolf.protects(arya_stark)
 
     expect(summer_wolf.starks_to_protect).to include(sansa_stark)
-    expect(summer_wolf.starks_to_protect).to include(jon_stark)
+    expect(summer_wolf.starks_to_protect).to include(john_stark)
     expect(lady_wolf.starks_to_protect).to include(rob_stark)
     expect(lady_wolf.starks_to_protect).to include(bran_stark)
     expect(lady_wolf.starks_to_protect).to_not include(arya_stark)
@@ -128,8 +129,8 @@ RSpec.describe Direwolf do
     lady_wolf.protects(sansa_stark)
     summer_wolf.leaves(arya_stark)
 
-    expect(summer_wolf.starks_to_protect).to be_empty
-    expect(lady_wolf.starks_to_protect.first.name).to be('Sansa')
+    expect(summer_wolf.starks_to_protect).to eq([])
+    expect(lady_wolf.starks_to_protect.first.name).to eq('Sansa')
     expect(arya_stark.safe?).to be false
   end
 
@@ -149,4 +150,54 @@ RSpec.describe Direwolf do
     expect(expected.name).to eq('Rickon')
   end
 
+  it 'can release all Starks' do
+    direwolf = Direwolf.new
+    expect(direwolf.name).to eq('Aenocyon Dirus')
+    expect(direwolf.home).to eq('Beyond the Wall')
+    expect(direwolf.size).to eq('Massive')
+    expect(direwolf.hunts_white_walkers?).to be true
+
+    ned_stark = Stark.new
+    expect(ned_stark.name).to eq('Eddard')
+    expect(ned_stark.location).to eq('Winterfell')
+    expect(ned_stark.safe?).to be false
+
+    arya_stark = Stark.new('Arya', 'Beyond the Wall')
+    expect(arya_stark.name).to eq('Arya')
+    expect(arya_stark.location).to eq('Beyond the Wall')
+    expect(arya_stark.safe?).to be false
+
+    rickon_stark = Stark.new('Rickon', 'Beyond the Wall')
+    expect(rickon_stark.name).to eq('Rickon')
+    expect(rickon_stark.location).to eq('Beyond the Wall')
+    expect(rickon_stark.safe?).to be false
+
+    starks = [ned_stark, arya_stark, rickon_stark]
+    starks.each do |stark|
+      direwolf.protects(stark)
+    end
+
+    expect(direwolf.starks_to_protect.length).to eq(2)
+    expect(direwolf.hunts_white_walkers?).to be false
+    expect(direwolf.starks_to_protect.first.name).to eq('Arya')
+
+    expect(ned_stark.safe?).to be false
+    expect(arya_stark.safe?).to be true
+    expect(rickon_stark.safe?).to be true
+
+    direwolf.release_starks
+    expect(direwolf.starks_to_protect.length).to eq(0)
+    expect(direwolf.hunts_white_walkers?).to be true
+  end
+
+  it 'can change colors' do
+    direwolf = Direwolf.new
+    expect(direwolf.color).to eq('White')
+
+    direwolf.change_color('grey')
+    expect(direwolf.color).to eq('Grey')
+
+    direwolf.change_color(123)
+    expect(direwolf.color).to eq('Grey')
+  end
 end
