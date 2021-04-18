@@ -1,5 +1,6 @@
-require './spec/spec-helper'
-require './lib/ogre'
+require 'rspec'
+require_relative '../lib/ogre/ogre'
+require_relative '../lib/ogre/human'
 
 RSpec.describe Ogre do
   it 'has a name' do
@@ -66,8 +67,7 @@ RSpec.describe Ogre do
 
     expect(ogre.swings).to eq(0)
 
-    ogre.encounter(human)
-    ogre.encounter(human)
+    2.times { ogre.encounter(human) }
 
     expect(ogre.swings).to eq(1)
     expect(human.notices_ogre?).to be true
@@ -94,5 +94,66 @@ RSpec.describe Ogre do
 
     ogre.apologize(human)
     expect(human.knocked_out?).to be false
+  end
+
+  it 'can kill a human if it swings when the human is knocked out' do
+    ogre = Ogre.new('Brak')
+    human = Human.new
+    expect(ogre.encounter_counter).to eq(0)
+    expect(ogre.swings).to eq(0)
+    expect(human.encounter_counter).to eq(0)
+    expect(human.swung_at).to eq(0)
+    expect(human.notices_ogre?).to be false
+    expect(human.knocked_out?).to be false
+
+    3.times { ogre.encounter(human) }
+    expect(ogre.encounter_counter).to eq(3)
+    expect(ogre.swings).to eq(1)
+    expect(human.encounter_counter).to eq(3)
+    expect(human.swung_at).to eq(1)
+    expect(human.notices_ogre?).to be true
+    expect(human.knocked_out?).to be false
+
+    3.times { ogre.encounter(human) }
+    expect(ogre.encounter_counter).to eq(6)
+    expect(ogre.swings).to eq(2)
+    expect(human.encounter_counter).to eq(6)
+    expect(human.swung_at).to eq(2)
+    expect(human.notices_ogre?).to be true
+    expect(human.knocked_out?).to be true
+
+    3.times { ogre.encounter(human) }
+    expect(ogre.encounter_counter).to eq(9)
+    expect(ogre.swings).to eq(3)
+    expect(human.encounter_counter).to eq(9)
+    expect(human.swung_at).to eq(3)
+    expect(human.notices_ogre?).to be false
+    expect(human.knocked_out?).to be true
+    expect(human.dead?).to be true
+  end
+
+  it 'cannot apologize to a dead human' do
+    ogre = Ogre.new('Brak')
+    human = Human.new
+    expect(ogre.encounter_counter).to eq(0)
+    expect(ogre.swings).to eq(0)
+    expect(human.encounter_counter).to eq(0)
+    expect(human.swung_at).to eq(0)
+    expect(human.notices_ogre?).to be false
+    expect(human.knocked_out?).to be false
+
+    9.times { ogre.encounter(human) }
+    expect(ogre.encounter_counter).to eq(9)
+    expect(ogre.swings).to eq(3)
+    expect(human.encounter_counter).to eq(9)
+    expect(human.swung_at).to eq(3)
+    expect(human.notices_ogre?).to be false
+    expect(human.knocked_out?).to be true
+    expect(human.dead?).to be true
+
+    expect(ogre.apologize(human)).to eq("whoops... that might've been a bit much...")
+    expect(human.notices_ogre?).to be false
+    expect(human.knocked_out?).to be true
+    expect(human.dead?).to be true
   end
 end
