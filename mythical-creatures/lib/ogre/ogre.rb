@@ -1,5 +1,5 @@
 class Ogre
-  attr_accessor :name, :home, :swings, :encounter_counter, :swings
+  attr_accessor :name, :home, :swings, :encounter_counter
 
   def initialize(name='Shrek', home='Swamp')
     @name = name
