@@ -4,11 +4,11 @@ The exercises can be completed in any order, but if you would like a suggestion,
 
 Suggested Order:
 
-* map_pattern_test.rb
-* find_pattern_test.rb
-* select_pattern_test.rb
-* count_pattern_test.rb
-* all_pattern_test.rb
-* max_and_min_by_pattern_test.rb
-* inject_pattern_test.rb
-* group_by_pattern_test.rb
+* [ ] map_pattern_test.rb
+* [ ] find_pattern_test.rb
+* [ ] select_pattern_test.rb
+* [ ] count_pattern_test.rb
+* [ ] all_pattern_test.rb
+* [ ] max_and_min_by_pattern_test.rb
+* [ ] inject_pattern_test.rb
+* [ ] group_by_pattern_test.rb
