@@ -21,19 +21,23 @@ RSpec.describe 'all pattern' do
         all_zeros = false
       end
     end
+
     expect(all_zeros).to be true
   end
 
-  xit 'test 3' do
+  it 'test 3' do
     words = ["love", "hate", "fire", "bird", "call"]
     all_four_letters = true
     words.each do |word|
-      # Your Code Here
+      if !word.length == 4
+        all_four_letters = false
+        break
+      end
     end
     expect(all_four_letters).to be true
   end
 
-  xit 'test 4' do
+  it 'test 4' do
     words = {
       one: "love",
       two: "hate",
@@ -43,39 +47,59 @@ RSpec.describe 'all pattern' do
     }
     all_four_letters = true
     words.each do |position, word|
-      # Your Code Here
+      if !word.length == 4
+        all_four_letters = false
+        break
+      end
     end
+
     expect(all_four_letters).to be true
   end
 
-  xit 'test 5' do
+  it 'test 5' do
     statuses = [:busy, :busy, :busy]
     all_busy = true
-    # Your Code Here
+    statuses.each do |status|
+      if !status == :busy
+        all_busy = false
+        break
+      end
+    end
 
     expect(all_busy).to be true
   end
 
-  xit 'test 6' do
+  it 'test 6' do
     friend_status = {
       "Megan" => :busy,
       "Sarah" => :busy,
       "Duncan" => :busy,
     }
     all_busy = true
-    # Your Code Here
+    friend_status.each do |friend, status|
+      if !status == :busy
+        all_busy = false
+        break
+      end
+    end
 
     expect(all_busy).to be true
   end
 
-  xit 'test 7' do
+  it 'test 7' do
     zip_codes = [94381, 831, 50009, 36232, 8992, 89999, 11110]
-    # Your Code Here
+    all_five_digits = true
+    zip_codes.each do |zip_code|
+      if zip_code.to_s.length != 5
+        all_five_digits = false
+        break
+      end
+    end
 
     expect(all_five_digits).to be false
   end
 
-  xit 'test 8' do
+  it 'test 8' do
     zip_codes = {
       "Megan" => 94381,
       "Sarah" => 831,
@@ -85,26 +109,43 @@ RSpec.describe 'all pattern' do
       "Cameron" => 89999,
       "Joshua" => 11110
     }
-    # Your Code Here
+    all_five_digits = true
+    zip_codes.each do |person, zip_code|
+      if zip_code.to_s.length != 5
+        all_five_digits = false
+        break
+      end
+    end
 
     expect(all_five_digits).to be false
   end
 
-  xit 'test 9' do
+  it 'test 9' do
     snacks = ["GARLIC PLANTAINS", "SNICKERDOODLES", "Pretzels"]
-    # Your Code Here
+    all_caps = true
+    snacks.each do |snack|
+      if snack != snack.upcase
+        all_caps = false
+        break
+      end
+    end
 
-    assert_equal false, all_caps
     expect(all_caps).to be false
   end
 
-  xit 'test 10' do
+  it 'test 10' do
     snacks = {
       savory: "GARLIC PLANTAINS",
       sweet: "SNICKERDOODLES",
       salty: "Pretzels"
     }
-    # Your Code Here
+    all_caps = true
+    snacks.each do |flavor_profile, snack|
+      if snack != snack.upcase
+        all_caps = false
+        break
+      end
+    end
 
     expect(all_caps).to be false
   end
