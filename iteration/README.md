@@ -7,7 +7,7 @@ Suggested Order:
 * [x] map_pattern_test.rb
 * [x] find_pattern_test.rb
 * [x] select_pattern_test.rb
-* [ ] count_pattern_test.rb
+* [x] count_pattern_test.rb
 * [ ] all_pattern_test.rb
 * [ ] max_and_min_by_pattern_test.rb
 * [ ] inject_pattern_test.rb
