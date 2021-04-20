@@ -1,15 +1,20 @@
 # require_relative 'medusa'
 
 class Person
-  attr_accessor :name, :stoned
+  attr_accessor :name, :stoned, :status
 
   def initialize(name='Perseus')
     @name = name
     @stoned = false
+    @status = 'alive'
   end
 
   def stoned?()
     return self.stoned
+  end
+
+  def alive?()
+    return self.alive
   end
 
 end

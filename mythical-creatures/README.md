@@ -37,7 +37,7 @@ Continue to follow the errors that your test provides until the test passes. The
 * [x] `centaur_spec.rb`
 * [x] `ogre_spec.rb`
 * [x] `direwolf_spec.rb`
-* [ ] `hydra_spec.rb` (extension, pending)
+* [x] `hydra_spec.rb` (extension)
 * [ ] `zombie_spec.rb` (extension, pending)
 
 ## Extra Challenges
