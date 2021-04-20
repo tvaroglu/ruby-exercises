@@ -9,6 +9,7 @@ RSpec.describe 'find pattern' do
         break
       end
     end
+
     expect(younger_than_thirty).to eq(29)
   end
 
@@ -27,44 +28,56 @@ RSpec.describe 'find pattern' do
         break
       end
     end
+
     expect(younger_than_thirty).to eq(:ladonna)
   end
 
-  xit 'test 3' do
+  it 'test 3' do
     ages = [39, 45, 29, 24, 50]
     older_than_fifty = nil
     ages.each do |age|
-      # Your Code Here
+      if age > 50
+        older_than_fifty = age
+        break
+      end
     end
 
     expect(older_than_fifty).to be_nil
   end
 
-  xit 'test 4' do
+  it 'test 4' do
     ages = {
       abdi: 39,
       hassan: 45,
       ladonna: 29,
       margaret: 24,
-      miguel: 50
+      miguel: 51
     }
     older_than_fifty = nil
     ages.each do |name, age|
-      # Your Code Here
+      if age > 50
+        older_than_fifty = name
+        break
+      end
     end
 
-    expect(older_than_fifty).to be_nil
+    expect(older_than_fifty).to be :miguel
   end
 
-  xit 'test 5' do
+  it 'test 5' do
     ages = [39, 45, 29, 24, 50]
     multiple_of_three = nil
-    # Your Code Here
+    ages.each do |age|
+      if age % 3 == 0
+        multiple_of_three = age
+        break
+      end
+    end
 
     expect(multiple_of_three).to eq(39)
   end
 
-  xit 'test 6' do
+  it 'test 6' do
     ages = {
       abdi: 39,
       hassan: 45,
@@ -73,19 +86,31 @@ RSpec.describe 'find pattern' do
       miguel: 50
     }
     multiple_of_three = nil
-    # Your Code Here
+    ages.each do |name, age|
+      if age % 3 == 0
+        multiple_of_three = name
+        break
+      end
+    end
 
     expect(multiple_of_three).to eq(:abdi)
   end
 
-  xit 'test 7' do
+  it 'test 7' do
     people = ["Willie", "Carmen Sandiego", "Bryan", "Faith", "Zac"]
-    # Your Code Here
+    carmen = ''
+
+    people.each do |person|
+      if person.include?('Carmen') == true
+        carmen = person
+        break
+      end
+    end
 
     expect(carmen).to eq("Carmen Sandiego")
   end
 
-  xit 'test 8' do
+  it 'test 8' do
     places = {
       Bangkok: "Willie",
       Santa_Fe: "Carmen Sandiego",
@@ -93,19 +118,31 @@ RSpec.describe 'find pattern' do
       Munich: "Faith",
       Mogudishu: "Zac"
     }
-    # Your Code Here
+    where_is_carmen_sandiego = nil
+    places.each do |place, person|
+      if person.include?('Carmen') == true
+        where_is_carmen_sandiego = place
+        break
+      end
+    end
 
     expect(where_is_carmen_sandiego).to eq(:Santa_Fe)
   end
 
-  xit 'test 9' do
+  it 'test 9' do
     numbers = [3, 7, 13, 11, 10, 2, 17]
-    # Your Code Here
+    even = nil
+    numbers.each do |number|
+      if number % 2 == 0
+        even = number
+        break
+      end
+    end
 
     expect(even).to eq(10)
   end
 
-  xit 'test 10' do
+  it 'test 10' do
     purchases = {
       "shoes" => :paid,
       "backpack" => :paid,
@@ -113,12 +150,17 @@ RSpec.describe 'find pattern' do
       "posters" => :paid,
       "food" => :pending
     }
-    # Your Code Here
+    pending = []
+    purchases.each do |item, status|
+      if status == :pending
+        pending << item.to_sym
+      end
+    end
 
-    expect(pending).to eq(:books)
+    expect(pending).to eq([:books, :food])
   end
 
-  xit 'test 11' do
+  it 'test 11' do
     purchases = {
       "shoes" => :paid,
       "backpack" => :paid,
@@ -126,8 +168,13 @@ RSpec.describe 'find pattern' do
       "posters" => :paid,
       "food" => :pending
     }
-    # Your Code Here
+    starts_with_b = []
+    purchases.each do |item, status|
+      if item[0] == 'b'
+        starts_with_b << item
+      end
+    end
 
-    expect(starts_with_b).to eq("backpack")
+    expect(starts_with_b).to eq(['backpack', 'books'])
   end
 end
