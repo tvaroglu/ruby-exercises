@@ -42,7 +42,7 @@ class Kous
   end
 
   def sleep()
-    self.is_stressed = true
+    self.is_stressed = false
     self.treats = []
   end
 

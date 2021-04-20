@@ -87,7 +87,7 @@ RSpec.describe Kous do
     expect(kous.stressed?).to be true
 
     kous.sleep
-    expect(kous.stressed?).to be true
+    expect(kous.stressed?).to be false
   end
 
   it 'digests all treats while asleep' do
