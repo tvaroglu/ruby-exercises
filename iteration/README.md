@@ -10,5 +10,5 @@ Suggested Order:
 * [x] `count_pattern_spec.rb`
 * [x] `all_pattern_spec.rb`
 * [x] `max_and_min_by_pattern_spec.rb`
-* [ ] `inject_pattern_spec.rb`
+* [x] `inject_pattern_spec.rb`
 * [ ] `group_by_pattern_spec.rb`
