@@ -1,4 +1,4 @@
-# Enums Exercises
+# Enumerables Exercises
 
 This project introduces enumerable methods one at a time.
 
@@ -33,7 +33,6 @@ $ cd ruby-exercises/enumerables/exercises_1/spec
 
 Open up `map_pattern_spec.rb` and `map_spec.rb` in Atom, side by side:
 
-![Set up map and map_pattern_test side by side](/images/enumerables-setup-map.jpg)
 
 The goal of these exercises is to help you understand enumerables, both how
 they work and how they can be replicated through the use of the #each, the
@@ -61,7 +60,7 @@ $ rspec exercises_1/spec/map_spec.rb
 
 Consider working through the exercises in this order:
 
-* [ ] `map`
+* [x] `map`
 * [ ] `select`
 * [ ] `find` (aka `detect`)
 * [ ] `sort_by`
