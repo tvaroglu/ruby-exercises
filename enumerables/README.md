@@ -63,7 +63,7 @@ Consider working through the exercises in this order:
 * [x] `map`
 * [x] `select`
 * [x] `find` (aka `detect`)
-* [ ] `sort_by`
+* [x] `sort_by`
 * [ ] `count`
 * [ ] `reject`
 * [ ] `reduce` (this one is tricky!)
