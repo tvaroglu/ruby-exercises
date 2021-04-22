@@ -28,10 +28,10 @@ into how each method is put together under the hood.
 ## Solving the Exercises
 
 ```shell
-$ cd ruby-exercises/enumerables/exercises_1
+$ cd ruby-exercises/enumerables/exercises_1/spec
 ```
 
-Open up `map_pattern_test.rb` and `map_test.rb` in Atom, side by side:
+Open up `map_pattern_spec.rb` and `map_spec.rb` in Atom, side by side:
 
 ![Set up map and map_pattern_test side by side](/images/enumerables-setup-map.jpg)
 
@@ -44,53 +44,46 @@ For each method, there are two files of interest. Let's start with `map`:
 1. `exercises_1/spec/map_pattern_spec.rb`
 2. `exercises_1/spec/map_spec.rb`
 
-In the `map_pattern_test.rb` you'll find a collection of exercises which do what `map` is good at,
-but they do it just with `each`. This file will give us some insight into how map works internally,
-hopefully helping us gain a deeper understanding around when we might use each one.
+In the `map_pattern_spec.rb` you'll find a collection of exercises which do what `map` is good at, but they do it just with `each`. This file will give us some insight into how map works internally, hopefully helping us gain a deeper understanding around when we might use each one.
 
-Then, in the other file, `map_test.rb` you'll find the same examples using `map` itself.
-These examples will generally be much more concise, and will give a good demonstration
-of how using the appropriate enumerable method (as opposed to doing everything with `each`)
-can make our lives much easier!
+Then, in the other file, `map_spec.rb` you'll find the same examples using `map` itself. These examples will generally be much more concise, and will give a good demonstration of how using the appropriate enumerable method (as opposed to doing everything with `each`) can make our lives much easier!
 
 ### Running the Test Files
 
-To run each example, we'll simply use the `rspec` command in combination with the
-path to that file. For example to run the 2 map files above, we would use:
+To run each example, we'll simply use the `rspec` command in combination with the path to that file. For example to run the 2 map files above, we would use:
 
 ```
-$ rspec exercises_1/spec/map_pattern_test.rb
-$ rspec exercises_1/spec/map_test.rb
+$ rspec exercises_1/spec/map_pattern_spec.rb
+$ rspec exercises_1/spec/map_spec.rb
 ```
 
 ### Recommended Order
 
 Consider working through the exercises in this order:
 
-* `map`
-* `select`
-* `find` (aka `detect`)
-* `sort_by`
-* `count`
-* `reject`
-* `reduce` (this one is tricky!)
-* `any?`
-* `all?`
-* `none?`
-* `one?`
-* `group_by` (this one is tricky too!)
-* `zip`
+* [ ] `map`
+* [ ] `select`
+* [ ] `find` (aka `detect`)
+* [ ] `sort_by`
+* [ ] `count`
+* [ ] `reject`
+* [ ] `reduce` (this one is tricky!)
+* [ ] `any?`
+* [ ] `all?`
+* [ ] `none?`
+* [ ] `one?`
+* [ ] `group_by` (this one is tricky too!)
+* [ ] `zip`
 
-You should work on the `pattern` test file in conjunction with the specific enumerable. `select_pattern_test.rb` alongside `select_test.rb`, etc.
+You should work on the `pattern` test file in conjunction with the specific enumerable. `select_pattern_spec.rb` alongside `select_spec.rb`, etc.
 
 __Recommended Workflow__
 
 Here's how we recommend you work through the exercises:
 
 * Open your text editor with two panes (left and right)
-* In the left pane, open the pattern file like `map_pattern_test.rb`
-* In the right pane, open the matching file like `map_test.rb`
-* Run the `map_pattern_test.rb` and solve the first exercise
-* Run the `map_test.rb` and solve the same exercise
+* In the left pane, open the pattern file like `map_pattern_spec.rb`
+* In the right pane, open the matching file like `map_spec.rb`
+* Run the `map_pattern_spec.rb` and solve the first exercise
+* Run the `map_spec.rb` and solve the same exercise
 * Repeat for each matching pair of exercises
-
