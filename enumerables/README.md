@@ -64,7 +64,7 @@ Consider working through the exercises in this order:
 * [x] `select`
 * [x] `find` (aka `detect`)
 * [x] `sort_by`
-* [ ] `count`
+* [x] `count`
 * [ ] `reject`
 * [ ] `reduce` (this one is tricky!)
 * [ ] `any?`
