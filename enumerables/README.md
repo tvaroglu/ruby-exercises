@@ -72,7 +72,7 @@ Consider working through the exercises in this order:
 * [x] `none?` (inverse of `all?`)
 * [x] `one?`
 * [x] `group_by`
-* [ ] `zip`
+* [x] `zip`
 
 You should work on the `pattern` test file in conjunction with the specific enumerable. `select_pattern_spec.rb` alongside `select_spec.rb`, etc.
 
