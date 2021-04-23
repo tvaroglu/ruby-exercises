@@ -61,16 +61,16 @@ $ rspec exercises_1/spec/map_spec.rb
 Consider working through the exercises in this order:
 
 * [x] `map`
-* [x] `select`
+* [x] `select` (inverse of `reject`)
 * [x] `find` (aka `detect`)
 * [x] `sort_by`
 * [x] `count`
-* [x] `reject`
-* [x] `reduce` (this one is tricky!)
+* [x] `reject` (inverse of `select`)
+* [x] `reduce`
 * [x] `any?`
-* [x] `all?`
-* [ ] `none?`
-* [ ] `one?`
+* [x] `all?` (inverse of `none?`)
+* [x] `none?` (inverse of `all?`)
+* [x] `one?`
 * [ ] `group_by` (this one is tricky too!)
 * [ ] `zip`
 
