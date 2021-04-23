@@ -68,7 +68,7 @@ Consider working through the exercises in this order:
 * [x] `reject`
 * [x] `reduce` (this one is tricky!)
 * [x] `any?`
-* [ ] `all?`
+* [x] `all?`
 * [ ] `none?`
 * [ ] `one?`
 * [ ] `group_by` (this one is tricky too!)
