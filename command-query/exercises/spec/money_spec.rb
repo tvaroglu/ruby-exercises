@@ -1,5 +1,5 @@
 require 'rspec'
-require_relative 'money'
+require_relative '../lib/money'
 
 RSpec.describe Money do
   it 'starts at zero' do
@@ -8,7 +8,7 @@ RSpec.describe Money do
     expect(money.amount).to eq(0)
   end
 
-  xit 'can earn money' do
+  it 'can earn money' do
     money = Money.new
 
     money.earn(20)
@@ -19,5 +19,16 @@ RSpec.describe Money do
 
     expect(money.amount).to eq(33)
   end
-end
 
+  it 'can spend money' do
+    money = Money.new
+
+    15.times { money.earn(1) }
+
+    expect(money.amount).to eq(15)
+
+    money.spend(20)
+
+    expect(money.amount).to eq(-5)
+  end
+end

@@ -1,5 +1,5 @@
 require 'rspec'
-require_relative 'apple'
+require_relative '../lib/apple'
 
 RSpec.describe Apple do
   it 'is not ripe when created' do
@@ -17,5 +17,18 @@ RSpec.describe Apple do
     1.times { apple.wait_a_week }
     expect(apple.ripe?).to be true
   end
-end
 
+  it 'is rotten after five weeks' do
+    apple = Apple.new
+    expect(apple.ripe?).to be false
+    expect(apple.rotten?).to be false
+
+    5.times { apple.wait_a_week }
+    expect(apple.ripe?).to be true
+    expect(apple.rotten?).to be false
+
+    apple.wait_a_week
+    expect(apple.ripe?).to be false
+    expect(apple.rotten?).to be true
+  end
+end
