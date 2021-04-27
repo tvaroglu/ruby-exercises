@@ -1,5 +1,5 @@
 require 'rspec'
-require_relative 'floor'
+require_relative '../lib/floor'
 
 RSpec.describe Floor do
   it 'is dirty by default' do
@@ -8,7 +8,7 @@ RSpec.describe Floor do
     expect(floor.dirty?).to be true
   end
 
-  xit 'is clean after it is washed' do
+  it 'is clean after it is washed' do
     floor = Floor.new
 
     floor.wash

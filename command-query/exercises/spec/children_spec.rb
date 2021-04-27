@@ -1,6 +1,6 @@
 require 'rspec'
-require_relative 'child'
-require_relative 'children'
+require_relative '../lib/children/child'
+require_relative '../lib/children/children'
 
 RSpec.describe Children do
   it 'has no eldest' do
@@ -13,7 +13,7 @@ RSpec.describe Children do
     children = Children.new
     children << Child.new('Sarah', 5)
 
-    expect(children.eldest.name).to eq('Sarah')
+    expect(children.eldest[:name]).to eq('Sarah')
   end
 
   it 'gets the eldest of several' do
@@ -21,6 +21,6 @@ RSpec.describe Children do
     children << Child.new('Robert', 2)
     children << Child.new('Fran', 8)
     children << Child.new('Hilbert', 4)
-    expect(children.eldest.name).to eq('Fran')
+    expect(children.eldest[:name]).to eq('Fran')
   end
 end

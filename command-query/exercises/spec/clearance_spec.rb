@@ -1,6 +1,6 @@
 require 'rspec'
-require_relative 'clearance'
-require_relative 'item'
+require_relative '../lib/clearance/clearance'
+require_relative '../lib/clearance/item'
 
 RSpec.describe Clearance do
   it 'has no items on clearance' do
@@ -13,7 +13,7 @@ RSpec.describe Clearance do
     # the discount here is a price, so this discount would be 20 percent
     clearance << Item.new('socks', price: 5, discount: 1)
 
-    expect(cleraance.best_deal).to eq('socks')
+    expect(clearance.best_deal).to eq('socks')
   end
 
   it 'has higest percent off many items' do
@@ -25,4 +25,3 @@ RSpec.describe Clearance do
     expect(clearance.best_deal).to eq('pants')
   end
 end
-

@@ -1,5 +1,5 @@
 require 'rspec'
-require_relative 'clock'
+require_relative '../lib/clock'
 
 RSpec.describe Clock do
   it 'starts at 6' do

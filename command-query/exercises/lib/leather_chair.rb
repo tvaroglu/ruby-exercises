@@ -13,4 +13,8 @@ class LeatherChair
     self.faded = true
   end
 
+  def refinish()
+    self.faded = false
+  end
+
 end

@@ -1,5 +1,5 @@
 require 'rspec'
-require_relative 'teeth'
+require_relative '../lib/teeth'
 
 RSpec.describe Teeth do
   it 'isnt clean by default' do
@@ -8,10 +8,24 @@ RSpec.describe Teeth do
     expect(teeth.clean?).to be false
   end
 
-  xit 'are clean after brushing them' do
+  it 'are clean after brushing them' do
     teeth = Teeth.new
 
     teeth.brush
     expect(teeth.clean?).to be true
+  end
+
+  it 'are dirty after eating' do
+    teeth = Teeth.new
+
+    expect(teeth.clean?).to be false
+
+    teeth.brush
+
+    expect(teeth.clean?).to be true
+
+    teeth.eat
+
+    expect(teeth.clean?).to be false
   end
 end

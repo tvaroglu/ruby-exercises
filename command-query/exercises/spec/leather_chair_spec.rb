@@ -15,4 +15,18 @@ RSpec.describe LeatherChair do
 
     expect(chair.faded?).to be true
   end
+
+  it 'can be refinished' do
+    chair = LeatherChair.new
+
+    expect(chair.faded?).to be false
+
+    chair.expose_to_sunlight
+
+    expect(chair.faded?).to be true
+
+    chair.refinish
+
+    expect(chair.faded?).to be false
+  end
 end

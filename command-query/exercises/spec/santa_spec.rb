@@ -1,5 +1,5 @@
 require 'rspec'
-require_relative 'santa'
+require_relative '../lib/santa'
 
 RSpec.describe Santa do
   it 'fits down the chimney' do
@@ -8,7 +8,7 @@ RSpec.describe Santa do
     expect(santa.fits?).to be true
   end
 
-  xit 'does not fit down the chimney if he eats too many cookies' do
+  it 'does not fit down the chimney if he eats too many cookies' do
     santa = Santa.new
     santa.eats_cookies
 

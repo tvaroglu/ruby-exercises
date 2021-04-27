@@ -15,4 +15,17 @@ RSpec.describe Tire do
     expect(tire.flat?).to be true
   end
 
+  it 'can be reinflated' do
+    tire = Tire.new
+
+    expect(tire.flat?).to be false
+
+    tire.blow_out
+
+    expect(tire.flat?).to be true
+
+    tire.inflate
+
+    expect(tire.flat?).to be false
+  end
 end

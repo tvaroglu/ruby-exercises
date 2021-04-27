@@ -1,5 +1,5 @@
 require 'rspec'
-require_relative 'person'
+require_relative '../lib/person'
 
 RSpec.describe Person do
   it 'is zero years old when born' do
@@ -8,7 +8,7 @@ RSpec.describe Person do
     expect(person.age).to eq(0)
   end
 
-  xit 'gets older' do
+  it 'gets older' do
     person = Person.new
 
     person.happy_birthday

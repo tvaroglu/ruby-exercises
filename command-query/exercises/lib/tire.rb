@@ -9,8 +9,12 @@ class Tire
     return self.flat
   end
 
-  def blow_out
+  def blow_out()
     self.flat = true
+  end
+
+  def inflate()
+    self.flat = false
   end
 
 end
