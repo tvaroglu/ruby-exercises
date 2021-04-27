@@ -1,3 +1,5 @@
+require_relative '../lib/character_count'
+
 RSpec.describe 'character count' do
 
   it 'can count a small word' do

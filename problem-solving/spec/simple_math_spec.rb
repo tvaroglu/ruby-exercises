@@ -1,4 +1,4 @@
-require "./lib/simple_math"
+require_relative "../lib/simple_math"
 
 RSpec.describe SimpleMath do
 
@@ -39,31 +39,39 @@ RSpec.describe SimpleMath do
   end
 
   it 'can multiply two numbers' do
+    sm = SimpleMath.new
 
-    # instantiate the class
-    #
-    # call the method being tested
-    # determine your expected result
-    #
-    # check results
+    result = sm.multiply(4,4)
+    expected = 16
+
+    expect(result).to eq(expected)
   end
 
 
   it 'can multiply two other numbers' do
+    sm = SimpleMath.new
 
-    # instantiate the class
-    #
-    # call the method being tested
-    # determine your expected result
-    #
-    # check results
+    result = sm.multiply(2,4)
+    expected = 8
+
+    expect(result).to eq(expected)
   end
 
   it 'can divide two numbers' do
-    # your code goes here
+    sm = SimpleMath.new
+
+    result = sm.divide(5,5)
+    expected = 1
+
+    expect(result).to eq(expected)
   end
 
   it 'can divide two other numbers' do
-    # # your code goes here
+    sm = SimpleMath.new
+
+    result = sm.divide(100,10)
+    expected = 10
+
+    expect(result).to eq(expected)
   end
 end
