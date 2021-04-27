@@ -30,7 +30,7 @@ These exercises focus on these two types of operations.
 - [x] `baby_spec.rb`
 - [x] `kid_spec.rb`
 - [x] `beers_spec.rb`
-- [x] `adult_spect.rb`
+- [x] `adult_spec.rb`
 - [x] `santa_spec.rb`
 - [x] `dog_spec.rb`
 - [x] `yak_spec.rb`
