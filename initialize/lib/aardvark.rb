@@ -1,4 +1,3 @@
-
 class Aardvark
   attr_reader :name
 

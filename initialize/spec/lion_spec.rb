@@ -19,4 +19,11 @@ RSpec.describe Lion do
 
     expect(lionel.sound).to eq("roar")
   end
+
+  it 'is created with default params if no args are supplied' do
+    lion = Lion.new
+
+    expect(lion.name).to eq("Azlan")
+    expect(lion.sound).to eq("RAWR!!!")
+  end
 end

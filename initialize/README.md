@@ -6,7 +6,7 @@ These exercises are intended to practice with the concept of initialization. Som
 
 Navigate to the `initialize` folder.
 
-Run each test with `rspec spec/<class_name>_spec.rb`. Work on the tests in alphabetical order beginning with `aardvark_test.rb`, then `beaver_test.rb`, etc.
+Run each test with `rspec spec/<class_name>_spec.rb`. Work on the tests in alphabetical order beginning with `aardvark_spec.rb`, then `beaver_spec.rb`, etc.
 
 If you see an error like:
 
@@ -18,7 +18,7 @@ Traceback (most recent call last):
 /Users/joshthompson/.rvm/rubies/ruby-2.5.3/lib/ruby/site_ruby/2.5.0/rubygems/core_ext/kernel_require.rb:54:in `require': cannot load such file -- ./lib/beaver (LoadError)
 ```
 
-You'll have to _create_ the missing file. Look in the `lib` directory, see how the only file is `aardfark.rb`? This error message is saying
+You'll have to _create_ the missing file. Look in the `lib` directory, see how the only file is `aardvark.rb`? This error message is saying
 > I cannot find ./lib/beaver.rb
 
 So, create a `beaver.rb` file in the `lib` directory, and try it again!

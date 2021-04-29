@@ -28,4 +28,22 @@ RSpec.describe Horse do
 
     expect(harry.diet).to eq(["Hay", "Sugar Cubes"])
   end
+
+  it 'can digest food' do
+    horse = Horse.new
+
+    expect(horse.name).to eq('Seabiscuit')
+
+    foods = ['Hay', 'Sugar Cubes', 'Carrots']
+    foods.each do |food|
+      horse.add_to_diet(food)
+    end
+
+    expect(horse.diet.length).to eq(3)
+
+    horse.digest
+
+    expect(horse.diet.length).to eq(0)
+    expect(horse.diet).to eq([])
+  end
 end

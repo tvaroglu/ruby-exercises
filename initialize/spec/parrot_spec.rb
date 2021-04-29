@@ -29,4 +29,13 @@ RSpec.describe Parrot do
 
     expect(perry.known_words).to eq(["Sugar", "Flashy", "Giant", "Whisper"])
   end
+
+  it 'can be created with default params' do
+    alex = Parrot.new
+
+    expect(alex.name).to eq('Alex')
+    expect(alex.known_words.class).to eq(Array)
+    expect(alex.known_words.length).to eq(1)
+    expect(alex.known_words.first && alex.sound).to eq('Squawk!')
+  end
 end

@@ -21,4 +21,25 @@ RSpec.describe Iguana do
 
     expect(iguana.colors).to eq(["Green", "Red", "White"])
   end
+
+  it 'has a default current color' do
+    iggy = Iguana.new
+
+    expect(iggy.current_color?).to eq('Green')
+    expect(iggy.colors.length).to eq(1)
+  end
+
+  it 'can change colors and current (default) color' do
+    iggy = Iguana.new
+    iggy.colors = ["Red", "White"]
+    expect(iggy.current_color?).to eq('Red')
+
+    iggy.change_colors('brown')
+    expect(iggy.current_color?).to eq('Brown')
+    expect(iggy.colors.length).to eq(3)
+
+    iggy.change_colors(123)
+    expect(iggy.current_color?).to eq('Brown')
+    expect(iggy.colors.length).to eq(3)
+  end
 end

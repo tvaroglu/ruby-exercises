@@ -19,4 +19,10 @@ RSpec.describe Beaver do
 
     expect(beatrice.name).to eq("Beatrice the Beaver")
   end
+
+  it 'has a default name' do
+    beav = Beaver.new
+
+    expect(beav.name).to eq("Beavery the Beaver")
+  end
 end
