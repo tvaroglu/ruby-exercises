@@ -8,6 +8,14 @@ class Stark
     @house_words = 'Winter is Coming'
   end
 
+  def is_safe()
+    self.safe = true
+  end
+
+  def un_safe()
+    self.safe = false
+  end
+
   def safe?()
     return self.safe
   end

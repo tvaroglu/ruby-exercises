@@ -9,24 +9,30 @@ class Ogre
   end
 
   def encounter(human)
-    human.encounter_counter += 1
+    if human.class == Human
+      human.increment_encounters
+    end
     self.encounter_counter += 1
     if human.notices_ogre?() == true
+      human.increment_swings
       self.swings += 1
-      human.swung_at += 1
     end
   end
 
   def swing_at(human)
+    if human.class == Human
+      human.increment_swings
+    end
     self.swings += 1
-    human.swung_at += 1
   end
 
   def apologize(human)
-    if human.dead != true
-      human.apologized_to = true
-    else
-      return "whoops... that might've been a bit much..."
+    if human.class == Human
+      if human.dead != true
+        human.apologized_to = true
+      else
+        return "whoops... that might've been a bit much..."
+      end
     end
   end
 

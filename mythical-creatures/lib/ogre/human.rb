@@ -11,6 +11,14 @@ class Human
     @dead = false
   end
 
+  def increment_encounters()
+    self.encounter_counter += 1
+  end
+
+  def increment_swings()
+    self.swung_at += 1
+  end
+
   def notices_ogre?()
     if dead?() == true
       self.notices_ogre = false

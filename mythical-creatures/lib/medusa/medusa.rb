@@ -18,15 +18,17 @@ class Medusa
   end
 
   def stare(victim)
-    victim.stoned = true
-    self.statues << victim
-    self.victim_count += 1
-    if self.victim_count > 0 && self.victim_count % 3 == 0
-      self.snakes_in_hair *= 3
-    end
-    if display_victims() > 3
-      unstoned = self.statues.shift
-      unstoned.stoned = false
+    if victim.class == Person
+      victim.is_stoned
+      self.statues << victim
+      self.victim_count += 1
+      if self.victim_count > 0 && self.victim_count % 3 == 0
+        self.snakes_in_hair *= 3
+      end
+      if display_victims() > 3
+        unstoned = self.statues.shift
+        unstoned.un_stoned
+      end
     end
   end
 

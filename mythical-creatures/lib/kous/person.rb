@@ -6,16 +6,14 @@ class Person
   end
 
   def give_treat(kous, treat)
-    if treat.class == String && kous.treats.include?(treat.to_s) == false
-      kous.treats << treat
-      kous.is_stressed = false
+    if kous.class == Kous
+      kous.accept(treat)
     end
   end
 
   def take_treat(kous, treat=nil)
-    if kous.treats.include?(treat.to_s) == true
-      kous.treats.delete(treat)
-      kous.is_stressed = true
+    if kous.class == Kous
+      kous.remove(treat)
     end
   end
 

@@ -11,9 +11,11 @@ class Direwolf
   end
 
   def protects(stark)
-    if self.home == stark.location && self.starks_to_protect.length < 2
-      self.starks_to_protect << stark
-      stark.safe = true
+    if stark.class == Stark
+      if self.home == stark.location && self.starks_to_protect.length < 2
+        self.starks_to_protect << stark
+        stark.is_safe
+      end
     end
   end
 
@@ -25,17 +27,19 @@ class Direwolf
   end
 
   def leaves(stark)
-    stark.safe = false
+    stark.un_safe
     self.starks_to_protect.delete(stark)
     return stark
   end
 
   def release_starks()
-    self.starks_to_protect.each do |stark|
-      stark.safe = false
+    if self.starks_to_protect.length > 0
+      self.starks_to_protect.each do |stark|
+        stark.un_safe
+      end
+      self.starks_to_protect = []
+      self.hunts_white_walkers = true
     end
-    self.starks_to_protect = []
-    self.hunts_white_walkers = true
   end
 
   def change_color(new_color)

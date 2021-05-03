@@ -37,17 +37,19 @@ class Werewolf
   end
 
   def consume(victim)
-    if self.human != true
-      victim.status = :dead
-      stomach << victim
-      self.victims_consumed += 1
-      self.hungry = false
-    elsif self.human == true
-      self.status = 'dead'
-      self.human = false
-      self.wolf = false
-      self.hungry = false
-      self.stomach = []
+    if victim.class == Victim
+      if self.human != true
+        victim.consumed
+        stomach << victim
+        self.victims_consumed += 1
+        self.hungry = false
+      elsif self.human == true
+        self.status = 'dead'
+        self.human = false
+        self.wolf = false
+        self.hungry = false
+        self.stomach = []
+      end
     end
   end
 

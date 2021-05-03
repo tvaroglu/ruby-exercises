@@ -7,4 +7,8 @@ class Victim
     @status = :alive
   end
 
+  def consumed()
+    self.status = :dead
+  end
+
 end

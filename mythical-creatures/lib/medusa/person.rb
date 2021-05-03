@@ -9,6 +9,14 @@ class Person
     @status = 'alive'
   end
 
+  def is_stoned()
+    self.stoned = true
+  end
+
+  def un_stoned()
+    self.stoned = false
+  end
+
   def stoned?()
     return self.stoned
   end

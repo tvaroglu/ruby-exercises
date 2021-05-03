@@ -7,11 +7,21 @@ class Human
     @zombies_killed = 0
   end
 
+  def is_undead()
+    self.status = 'undead'
+  end
+
+  def is_consumed()
+    self.status = 'consumed'
+  end
+
   def kill(zombie)
-    if self.status != 'consumed' && self.status != 'undead'
-      if zombie.status == 'undead'
-        zombie.status = 'double-tapped'
-        self.zombies_killed += 1
+    if zombie.class == Zombie
+      if self.status != 'consumed' && self.status != 'undead'
+        if zombie.status == 'undead'
+          zombie.is_double_tapped
+          self.zombies_killed += 1
+        end
       end
     end
   end

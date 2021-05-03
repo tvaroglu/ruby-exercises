@@ -11,18 +11,26 @@ class Zombie
   end
 
   def bite(human)
-    if human.status != 'undead' && self.status != 'double-tapped'
-      human.status = 'undead'
-      self.people_turned += 1
+    if human.class == Human
+      if human.status != 'undead' && self.status != 'double-tapped'
+        human.is_undead
+        self.people_turned += 1
+      end
     end
   end
 
   def consume(human)
-    if self.status != 'double-tapped'
-      self.stomach << human
-      human.status = 'consumed'
-      self.people_consumed += 1
+    if human.class == Human
+      if self.status != 'double-tapped'
+        self.stomach << human
+        human.is_consumed
+        self.people_consumed += 1
+      end
     end
+  end
+
+  def is_double_tapped()
+    self.status = 'double-tapped'
   end
 
 end
